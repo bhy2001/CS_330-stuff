@@ -157,13 +157,13 @@ function displayWarnings(urlParams, selector) {
   let name = urlParams["name"];
   let number = urlParams["number"];
   const WarnContainer = document.querySelector(selector);
-  if (!name) {
+  if (!urlParams.has("name")) {
     let MsgContainerName = document.createElement("div");
     MsgContainerName.innerHTML = "You did not provide any name";
     MsgContainerName.classList.add("alert", "alert-danger");
     WarnContainer.appendChild(MsgContainerName);
   }
-  if (!number) {
+  if (!urlParams.has("number")) {
     let MsgContainerNumber = document.createElement("div");
     MsgContainerNumber.innerHTML = "You did not provide any number";
     MsgContainerNumber.classList.add("alert", "alert-warning");
