@@ -17,7 +17,7 @@ function greet(name, selector) {
   } else {
     name = "student";
   }
-  document.querySelector(selector).innerHTML = `Hello, ${name}`;
+  document.querySelector(selector).innerHTML = `Hello ${name}`;
 }
 
 /**
