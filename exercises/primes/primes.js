@@ -111,6 +111,14 @@ function createRow(tR = "tr", tD = "td", tText = "") {
  * @param {string} selector element to use for display
  */
 function printNPrimes(number = 330, selector) {
+  const qString = window.location.search;
+  const Param = new URLSearchParams(qString);
+  if (Param.has("number") == true) {
+    number = Param.get("number");
+  } else {
+    number = "330";
+  }
+  number = Number(number);
   let PrimeArray = getNPrimes(number);
   const TableHead = document.querySelector(`${selector} thead`);
   const TableHeadRow = createRow("tr", "th", `First ${number} prime(s)`);
@@ -130,6 +138,22 @@ function printNPrimes(number = 330, selector) {
  * @param {string} selector element to use for display
  */
 function displayWarnings(urlParams, selector) {
+  // const qString = window.location.search;
+  // const Param = new URLSearchParams(qString);
+  // let WarnDiv = document.querySelector(selector);
+  // if (Param.has("name") == null) {
+  //   let MsgContainerName = document.createElement("div");
+  //   MsgContainerName.innerText = "You did not provide any name";
+  //   MsgContainerName.classList.add("alert", "alert-danger");
+  //   WarnDiv.appendChild(MsgContainerName);
+  // }
+  // if (Param.has("number") == null) {
+  //   let MsgContainerNumber = document.createElement("div");
+  //   MsgContainerNumber.innerText = "You did not provide any number";
+  //   MsgContainerNumber.classList.add("alert", "alert-warning");
+  //   WarnDiv.appendChild(MsgContainerNumber);
+  // }
+
   let name = urlParams["name"];
   let number = urlParams["number"];
   const WarnContainer = document.querySelector(selector);
