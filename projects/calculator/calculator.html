@@ -11,24 +11,72 @@
 
   <body>
     <div class="container">
-      <span id="result">&nbsp;</span>
-      <button id="btn0" onclick="enterDigit(0)">0</button>
-      <button id="btn1" onclick="enterDigit(1)">1</button>
-      <button id="btn2" onclick="enterDigit(2)">2</button>
-      <button id="btn3" onclick="enterDigit(3)">3</button>
-      <button id="btn4" onclick="enterDigit(4)">4</button>
-      <button id="btn5" onclick="enterDigit(5)">5</button>
-      <button id="btn6" onclick="enterDigit(6)">6</button>
-      <button id="btn7" onclick="enterDigit(7)">7</button>
-      <button id="btn8" onclick="enterDigit(8)">8</button>
-      <button id="btn9" onclick="enterDigit(9)">9</button>
-      <button id="btnSum" onclick="enterOp('+')">+</button>
-      <button id="btnSub" onclick="enterOp('-')">-</button>
-      <button id="btnMul" onclick="enterOp('*')">*</button>
-      <button id="btnDiv" onclick="enterOp('/')">/</button>
-      <button id="btnEql" onclick="eval_expr()">=</button>
-      <button id="btnClr" onclick="clear_screen()">C</button>
-      <button id="btnDot" onclick="enterDigit('.')">.</button>
+      <div id="screen-container" class="container">
+        <span id="result">&nbsp;</span>
+      </div>
+      <div id="button-container" class="container">
+        <div id="except-equl" class="container">
+          <button id="btn1" class="btn btn-light" onclick="enterDigit(1)">
+            1
+          </button>
+          <button id="btn2" class="btn btn-light" onclick="enterDigit(2)">
+            2
+          </button>
+          <button id="btn3" class="btn btn-light" onclick="enterDigit(3)">
+            3
+          </button>
+          <button id="btnSum" class="btn btn-dark" onclick="enterOp('+')">
+            +
+          </button>
+          <br />
+          <button id="btn4" class="btn btn-light" onclick="enterDigit(4)">
+            4
+          </button>
+          <button id="btn5" class="btn btn-light" onclick="enterDigit(5)">
+            5
+          </button>
+          <button id="btn6" class="btn btn-light" onclick="enterDigit(6)">
+            6
+          </button>
+          <button id="btnSub" class="btn btn-dark" onclick="enterOp('-')">
+            -
+          </button>
+          <br />
+          <button id="btn7" class="btn btn-light" onclick="enterDigit(7)">
+            7
+          </button>
+          <button id="btn8" class="btn btn-light" onclick="enterDigit(8)">
+            8
+          </button>
+          <button id="btn9" class="btn btn-light" onclick="enterDigit(9)">
+            9
+          </button>
+          <button id="btnMul" class="btn btn-dark" onclick="enterOp('*')">
+            *
+          </button>
+          <br />
+          <button id="btnClr" class="btn btn-danger" onclick="clear_screen()">
+            C
+          </button>
+          <button id="btn0" class="btn btn-light" onclick="enterDigit(0)">
+            0
+          </button>
+
+          <button id="btnDot" class="btn btn-danger" onclick="enterDigit('.')">
+            .
+          </button>
+          <button id="btnDiv" class="btn btn-dark" onclick="enterOp('/')">
+            /
+          </button>
+        </div>
+        <button
+          id="btnEql"
+          class="btn btn-danger btn-primary btn-lg btn-block"
+          onclick="eval_expr()"
+        >
+          =
+        </button>
+      </div>
     </div>
 
     <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
