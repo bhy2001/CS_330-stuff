@@ -8,9 +8,12 @@
 
 <body> 
     <div class="container">
-        <h1>TODO List</h1>
-        <div class="container">
-            <form id="newTask">
+        <div class = "d-flex justify-content-center">
+            <h1>TODO List</h1>
+        </div>
+        <div id="feedbackMessage" class = "invisible row alert alert-danger d-flex justify-content-center"></div>  
+        <div class="row">
+            <form id="newTask" class="container d-flex justify-content-center">
             <div>
                 <div>
                     <label for="title">Task</label>
@@ -19,41 +22,42 @@
 
                 <div>
                     <label for="assignedTo">Assigned to</label>
-                    <select id="assignedTo"></select>
+                    <select id="assignedTo" class="btn btn-outline-primary dropdown-toggle"></select>
                 </div>
 
                 <div>
                     <label for="priority">Priority</label>
-                    <select id="priority"></select>
+                    <select id="priority" class="btn btn-outline-primary dropdown-toggle"></select>
                 </div>
 
                 <div>
                     <label for="dueDate">Due date</label>
-                    <input id="dueDate" required />
+                    <input type="date" id="dueDate" required />
                 </div>
             </div>
+              
             <div>
-                <button type="button" id="addTaskBtn" onclick="addTask()">Add task</button>
+                <button class="p-1 btn-primary" type="button" id="addTaskBtn" onclick="addTask()">Add task</button>
             </div>
         </form>
     </div>
     </div>
 
     <div class="container">
-        <table id="taskList">
-            <thead>
+        <table id="taskList" class="table">
+            <thead >
                 <tr>
-                    <th></th>
-                    <th>Task</th>
-                    <th>Assigned to</th>
-                    <th>Priority</th>
-                    <th>Due date</th>
+                    <th scope="col"></th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Assigned to</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col">Due date</th>
                 </tr>
             </thead>
             <tbody></tbody>
         </table>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
