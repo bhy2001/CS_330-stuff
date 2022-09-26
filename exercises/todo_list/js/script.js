@@ -75,12 +75,8 @@ function addRow(valueList, parent) {
  */
 function removeRow() {
   // TODO: Implement this function
-  $("#taskList tbody").on("click", function () {
-    setTimeout(() => {
-      $("#taskList tbody tr td input[type='checkbox']:checked")
-        .closest("tr")
-        .remove();
-    });
+  $("input").on("changed", function () {
+    $("input:checked").not(".all").parents("tr").remove();
   });
 }
 
