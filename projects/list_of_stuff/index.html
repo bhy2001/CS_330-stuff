@@ -1,21 +1,97 @@
 <html>
-
-<head>
-    <title>List of stuff</title>
+  <head>
+    <title>List of Comics</title>
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
+    <div class="container">
+      <h1 class="row">Comics Collection</h1>
+      <form id="newComic" name="comic" class="container">
+        <div class="row">
+          <label class="col">Title</label>
+          <div class="col">
+            <input type="text" class="input" id="title" name="title" required />
+          </div>
+        </div>
+        <div class="row">
+          <label class="col">Author</label>
+          <div class="col">
+            <input
+              type="text"
+              class="input"
+              id="author"
+              name="author"
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <label class="col">Country</label>
+          <div class="col">
+            <select name="country" id="selCountry" required></select>
+          </div>
+        </div>
+        <div class="row">
+          <label class="col">Release date</label>
+          <div class="col">
+            <input
+              type="date"
+              class="input"
+              id="release"
+              name="release"
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <label class="col">Status</label>
+          <div class="col">
+            <select name="status" id="selStatus" required></select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button type="button" class="button" onclick="addComic()">
+              Add Comic
+            </button>
+          </div>
+          <div class="col">
+            <button type="button" class="button" onclick="DeleteAll()">
+              Delete All
+            </button>
+          </div>
+          <div id="message" class="row alert-danger"></div>
+        </div>
+      </form>
+      <div class="container" id="comic"></div>
+      <table id="myComics" class="table">
+        <thead>
+          <th></th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Country</th>
+          <th>Released on</th>
+          <th>Status</th>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript" src="js/model.js"></script>
     <script type="text/javascript" src="js/view.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
-</body>
-
+  </body>
 </html>

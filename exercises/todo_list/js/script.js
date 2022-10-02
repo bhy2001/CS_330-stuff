@@ -27,7 +27,7 @@ function addTask() {
     let info = document.getElementById(row).value;
     if (info == "") {
       let warn_msg = document.querySelector("#feedbackMessage");
-      warn_msg.classList.remove("invisible");
+      
       warn_msg.innerHTML = "Fill out title and due date";
       break;
     } else {
