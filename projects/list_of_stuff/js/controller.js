@@ -39,11 +39,12 @@ function addComic() {
 
   let newComic = new Comic(title, author, country, release, status);
   myLibraryModel.add(newComic);
+  myLibraryView.redrawTable(myLibraryModel._collection);
 }
 
 function DeleteAll() {
   myLibraryModel.del_all();
-  myLibraryView.redrawTable();
+  myLibraryView.redrawTable(myLibraryModel._collection);
 }
 
 function DeleteRow() {
