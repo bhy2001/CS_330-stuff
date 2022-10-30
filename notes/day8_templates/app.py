@@ -26,7 +26,7 @@ def index():
 @app.route("/<int:n>")
 def number(n):
     return render_template("primes.html", prime_nums=get_n_primes(n))
-
+ 
 
 @app.route("/game", methods=["GET", "POST"])
 def play_game():
