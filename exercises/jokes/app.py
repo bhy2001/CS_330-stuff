@@ -39,6 +39,8 @@ def send_joke(
 ) -> List[str]:
     """Return a list of jokes"""
     jokes = []
+    if not number:
+        number=1
     if (language == "de" and category == "all" and number > 146):
         number = 146
     if (language == "en" and category == "chuck" and number > 103):
