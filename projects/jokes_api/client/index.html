@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jokes Api</title>
+    <link
+      href="//cdn.muicss.com/mui-0.10.1/css/mui.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="//cdn.muicss.com/mui-0.10.1/js/mui.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <div><a class="float-right" href="/">Home</a></div>
+      <div>
+        <h2 class="mui-container mui--text-center">
+          Pick the category, language, and number of jokes to hear
+        </h2>
+      </div>
+      <form class="mui-container mui--text-center" method="POST">
+        <div>
+          <div class="mui-container mui--text-center">
+            <label for="category" value="Category">Category</label>
+            <select name="category" id="selCat-01">
+              <option value="all">all</option>
+              <option value="chuck">Chuck</option>
+              <option value="neutral">Neutral</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="language" value="Language">Language</label>
+            <select name="language" id="selLang-01">
+              <option value="en">en</option>
+              <option value="de">de</option>
+              <option value="es">es</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="number" value="Number">Number</label>
+            <input type="text" name="number" id="inpNum" />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <button
+              class="mui-btn mui-btn-large mui-btn--primary"
+              type="submit"
+              id="btnAmuse"
+              onclick="get_jokes()"
+            >
+              Get a number of jokes
+            </button>
+          </div>
+        </div>
+      </form>
+      <br />
+      <br />
+      <form class="mui-container mui--text-center" method="POST">
+        <div>
+          <div class="mui-container mui--text-center">
+            <label for="category" value="Category">Category</label>
+            <select name="category" id="selCat-02">
+              <option value="all">all</option>
+              <option value="chuck">Chuck</option>
+              <option value="neutral">Neutral</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="language" value="Language">Language</label>
+            <select name="language" id="selLang-02">
+              <option value="en">en</option>
+              <option value="de">de</option>
+              <option value="es">es</option>
+            </select>
+          </div>
+          <div>
+            <label for="number" value="Id">ID number</label>
+            <input type="text" name="number" id="inpID-02" />
+          </div>
+        </div>
+        <div>
+          <div>
+            <button
+              class="mui-btn mui-btn-large mui-btn--primary"
+              type="submit"
+              id="btnAmuse"
+              onclick="get_jokes_ID()"
+            >
+              Get a specific joke
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="jokes">  
+    </div>
+  </body>
+</html>
