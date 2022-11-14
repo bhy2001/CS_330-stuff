@@ -13,7 +13,7 @@ app = Flask(__name__)
 # jokes/es/neutral/5
 @app.route("/api/v1/jokes/<string:lang>/<string:category>/<int:number>",
            methods=['GET'])
-def get_joke(category, lang, number):
+def get_joke(lang, category, number):
     try:
         joke_list = pyjokes.get_jokes(category, lang)
         res_list = joke_list[:number]
@@ -26,7 +26,7 @@ def get_joke(category, lang, number):
 
 @app.route("/api/v1/jokes/<string:lang>/<string:category>/1/<int:id>",
            methods=['GET'])
-def get_joke_with_id(category, lang, number):
+def get_joke_with_id(lang, category, number):
     try:
         res_joke = pyjokes.get_jokes(category, lang)[id]
         res = Response(json.dumps({"joke": res_joke}))

@@ -5,9 +5,9 @@
     <div class="mui-row">
       <div class="mui-col">
         <div class="mui-select">
-          <select name="country">
+          <select id="selCountry" name="country">
             {% for o in options %}
-            <option value="{{o[0]}}">{{o[0]}}</option>
+            <option value="{{ o[0] }}">{{ o[1] }}</option>
             {% endfor %}
           </select>
           <label>Pick a country</label>
@@ -15,6 +15,7 @@
       </div>
       <div class="mui-col">
         <input
+          id="btnInfo"
           type="submit"
           class="mui-btn mui-btn--primary"
           value="Get Info!"

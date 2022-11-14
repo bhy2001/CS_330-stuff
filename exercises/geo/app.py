@@ -41,7 +41,7 @@ def index():
         if country in CACHE:
             result = CACHE[country]
         else:
-            query = f"select name, continent, region, capital, surfacearea, population, governmentform, headofstate from country where name = '{country}'"
+            query = f"select name, continent, region, capital, surfacearea, population, governmentform, headofstate from country where code = '{country}'"
             result = get_data_from_db(query)
             CACHE[country] = result
         return render_template("index.html", rows=result)
@@ -57,7 +57,7 @@ def index():
     if request.form.get("continent"):
         continent = request.form.get("continent")
         if continent in CACHE:
-            continent = CACHE[continent]
+            result = CACHE[continent]
         else:
             query = f"select name, continent, region, capital, surfacearea, population, governmentform, headofstate from country where continent = '{continent}'"
             result = get_data_from_db(query)
@@ -71,7 +71,7 @@ def search(scope: str):
     if scope == "country":
         # get countries from the database and populate options
         # of the drop-down menu
-        query = "select name from country"
+        query = "select code, name from country"
         country_list = get_data_from_db(query)
         return render_template("country.html", options=country_list)
         raise NotImplementedError
