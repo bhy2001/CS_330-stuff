@@ -71,7 +71,10 @@ def index():
         if continent in CACHE:
             result = CACHE[continent]
         else:
-            query = f"select name, continent, region, capital, surfacearea, population, governmentform, headofstate from country where continent = '{continent}'"
+            if continent == "Oceania":
+                query = f"select name, continent, region, capital, surfacearea, population, governmentform, headofstate from country where continent = '{continent}' and population>0"
+            else:
+                query = f"select name, continent, region, capital, surfacearea, population, governmentform, headofstate from country where continent = '{continent}'"
             result = get_data_from_db(query)
             CACHE[continent] = result
         return render_template("index.html", rows=result)
