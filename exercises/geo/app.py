@@ -1,3 +1,4 @@
+import pathlib
 import sqlite3
 import requests
 from flask import Flask, request, render_template, send_from_directory
@@ -13,19 +14,30 @@ def get_data_from_db(query: str) -> list:
     """retrieve data from the database and return to the user"""
     # raise NotImplementedError
     result = set()
-    local_connect = sqlite3.connect("world.sqlite3")
-    local_cur = local_connect.cursor()
-    local_table = query
-    if local_table:
-        local_cur.execute(query)
+    # if not pathlib.Path("world.sqlite3").exists():
+    #     db_path = pathlib.Path('exercises/geo/world.sqlite3')
+    #     local_connect = sqlite3.connect(db_path)
+    # else:
+    #     local_connect = sqlite3.connect("world.sqlite3")
+    if __name__ == "app":
+        db_path = '.'
     else:
-        return result.append({'Error': "table name not in database"})
-    for i in local_cur:
-        result.add(i)
-    result = list(result)
-    result.sort()
-    local_cur.close()
-    return result
+        db_path = 'exercises\geo'
+    with sqlite3.connect(
+        pathlib.Path(db_path) / pathlib.Path("world.sqlite3")
+    ) as local_connect:
+        local_cur = local_connect.cursor()
+        local_table = query
+        if local_table:
+            local_cur.execute(query)
+        else:
+            return result.append({'Error': "table name not in database"})
+        for i in local_cur:
+            result.add(i)
+        result = list(result)
+        result.sort()
+        local_cur.close()
+        return result
 
 
 @app.route("/", methods=["GET", "POST"])
