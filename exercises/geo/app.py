@@ -22,7 +22,7 @@ def get_data_from_db(query: str) -> list:
     if __name__ == "app":
         db_path = '.'
     else:
-        db_path = 'exercises\geo'
+        db_path = 'exercises/geo'
     with sqlite3.connect(
         pathlib.Path(db_path) / pathlib.Path("world.sqlite3")
     ) as local_connect:
