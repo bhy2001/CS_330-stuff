@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+<div class="mui-container">
+  <h2>Add A New Manga</h2>
+  <div class=""mui-form">
+    <form action="/add" method="POST" class="form">
+      <div class="mui-textfield">
+        <label class="">Manga name</label>
+        <input type="text" name="manga_name" required/>
+      </div>
+      <div class="mui-textfield">
+        <label class="">Manga Author</label>
+        <input type="text" name="manga_author" required/>
+      </div>
+      <div class="mui-textfield">
+        <label class="">Manga Publisher</label>
+        <input type="text" name="manga_publisher" required/>
+      </div>
+      <div class="mui-textfield">
+        <label class="">Manga Price </label>
+        <input type="number" name="manga_price" required/>
+      </div>
+      <div class="">
+        <input type="submit" class="mui-btn mui-btn--primary" value="Add To The List" disable/>
+      </div>
+    </form>
+    <div class="">{{text}}</div>
+  </div>
+</div>
+{% endblock %}
