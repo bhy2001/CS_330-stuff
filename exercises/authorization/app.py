@@ -30,7 +30,9 @@ from user import User
 
 # Configuration
 GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
+GOOGLE_CLIENT_ID = "172379525031-tk40vljt6jg41ca279luktt6u9og2pcv.apps.googleusercontent.com"
 GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
+GOOGLE_CLIENT_SECRET = "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"
 GOOGLE_DISCOVERY_URL = (
     "https://accounts.google.com/.well-known/openid-configuration"
 )
@@ -54,10 +56,12 @@ except sqlite3.OperationalError:
 # OAuth 2 client setup
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
+
 # Flask-Login helper to retrieve a user from our db
 @login_manager.user_loader
 def load_user(user_id):
     return User.get(user_id)
+
 
 @app.route("/")
 def index():
@@ -73,8 +77,10 @@ def index():
     else:
         return '<a class="button" href="/login">Google Login</a>'
 
+
 def get_google_provider_cfg():
     return requests.get(GOOGLE_DISCOVERY_URL).json()
+
 
 @app.route("/login")
 def login():
@@ -90,6 +96,7 @@ def login():
         scope=["openid", "email", "profile"],
     )
     return redirect(request_uri)
+
 
 @app.route("/login/callback")
 def callback():
@@ -124,7 +131,7 @@ def callback():
     userinfo_endpoint = google_provider_cfg["userinfo_endpoint"]
     uri, headers, body = client.add_token(userinfo_endpoint)
     userinfo_response = requests.get(uri, headers=headers, data=body)
-    
+
     # You want to make sure their email is verified.
     # The user authenticated with Google, authorized your
     # app, and now you've verified their email through Google!
@@ -135,7 +142,7 @@ def callback():
         users_name = userinfo_response.json()["given_name"]
     else:
         return "User email not available or not verified by Google.", 400
-    
+
     # Create a user in your db with the information provided
     # by Google
     user = User(
@@ -152,11 +159,13 @@ def callback():
     # Send user back to homepage
     return redirect(url_for("index"))
 
+
 @app.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect(url_for("index"))
 
+
 if __name__ == "__main__":
-    app.run(ssl_context="adhoc")
+    app.run(ssl_context=('cert.pem', 'key.pem'))
