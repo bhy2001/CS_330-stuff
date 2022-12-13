@@ -1,0 +1,2 @@
+Client: https://vietluther-marketapp.netlify.app
+Server: http://kevin00co.pythonanywhere.com/
